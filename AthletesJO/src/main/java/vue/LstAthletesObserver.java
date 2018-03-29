@@ -30,9 +30,8 @@ public class LstAthletesObserver implements Observer {
                 list.add(((ModeleAthletes)o).get(i).toString());
             }
         }
-        else {
-            ((Action)arg).getAction() == Action.DEL) {
-            list.removeAll());          
+        else if (((Action)arg).getAction() == Action.DEL) {
+            list.removeAll();          
         }
     }
 

@@ -4,8 +4,8 @@ public class Sport {
     private int no;
     private String nom, categorie;
     
-    public Sport(int no, String nom, String categorie) { this.no=no; this.nom=nom; this.categorie=categorie }
-    public Sport(int no) { this(no, ""); }
+    public Sport(int no, String nom, String categorie) { this.no=no; this.nom=nom; this.categorie=categorie; }
+    public Sport(int no) { this(no, "",""); }
     
     public int getNo() { return no; }
     public String getCategorie() { return categorie; }

@@ -14,7 +14,7 @@ public class SportDao {
         ArrayList aLst = new ArrayList();
         for (int i=0; i<tabSports.length; i++) {
             StringTokenizer strT = new StringTokenizer(tabSports[i], ";");
-            aLst.add(new Sport(Integer.parseInt(strT.nextToken()), strT.nextToken()));
+            aLst.add(new Sport(Integer.parseInt(strT.nextToken()), strT.nextToken(),strT.nextToken()));
         }
         return aLst;
     }   
