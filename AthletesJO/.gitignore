@@ -2,8 +2,10 @@
 *.class
 *.bak
 .idea
-target
+/target
+/out
 *.iml
 *.war
 *.jar
 *.zip
+settings.xml
