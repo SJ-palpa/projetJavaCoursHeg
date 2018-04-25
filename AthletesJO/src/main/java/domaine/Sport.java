@@ -6,7 +6,8 @@ public class Sport {
     
     public Sport(int no, String nom, String categorie) { this.no=no; this.nom=nom; this.categorie=categorie; }
     public Sport(int no) { this(no, "",""); }
-    
+    public Sport() {  }
+
     public int getNo() { return no; }
     public String getCategorie() { return categorie; }
     
