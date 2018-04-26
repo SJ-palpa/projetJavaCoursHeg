@@ -10,6 +10,7 @@ dao\AthleteDao.class
 metier\ListeObjects.class
 domaine\Pays.class
 metier\ModeleAthletes.class
+domaine\Contrat.class
 dao\PaysDao.class
 vue\FrmMain$3.class
 metier\ModelePays.class
