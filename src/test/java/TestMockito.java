@@ -13,8 +13,10 @@ import java.util.ArrayList;
 
 public class TestMockito {
     
-    @InjectMocks public Pays pMock = new Pays();
-    @InjectMocks public Sport sMock = new Sport();
+    @Mock
+    Pays pMock; 
+    @Mock 
+    Sport sMock;
     public Pays pays,pays1,pays2;
     ArrayList aLst;
 
@@ -22,7 +24,7 @@ public class TestMockito {
     public void setup(){
 	Pays pays = new Pays();
 	MockitoAnnotations.initMocks(this);
-	//AthleteDao.getListeAthletes(pMock, sMock);	
+		
         Pays pays1 = new Pays(1,"fr", "France");
         Pays pays2 = new Pays(2,"ch", "Suisse");
     }
@@ -50,6 +52,7 @@ public class TestMockito {
     @Test
     public void testMock() {
         //when(aLst.get()).thenReturn("");
+	//aLst = AthleteDao.getListeAthletes(pMock, sMock);
     }
    
 
