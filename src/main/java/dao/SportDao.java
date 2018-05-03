@@ -1,18 +1,22 @@
 package dao;
 
+import dao.FileReader;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import outils.FileStr;
 import domaine.Sport;
 
 public class SportDao {
-    
-    private static final String FICHIER_SPORTS = "Sports.txt";
 
-    public static ArrayList getListeSports() {
-	ArrayList aLst = new ArrayList();
-        
-	String[] tabSports = FileStr.read(FICHIER_SPORTS);
+    private final FileReader reader;
+
+    public SportDao(FileReader reader){ this.reader = reader; }
+
+    public List getListeSports() {
+
+	List aLst= new ArrayList();//= new List();      
+	String[] tabSports = reader.readSports();
         
         for (int i=0; i<tabSports.length; i++) {
             StringTokenizer strT = new StringTokenizer(tabSports[i], ";");

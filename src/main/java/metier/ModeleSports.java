@@ -5,6 +5,7 @@
  */
 package metier;
 
+import dao.FileReader;
 import dao.SportDao;
 import domaine.Sport;
 
@@ -16,7 +17,9 @@ public class ModeleSports extends ListeObjects{
     
     
     public void loadData(){
-        aListe = SportDao.getListeSports();
+	FileReader r = new FileReader();
+	SportDao sport = new SportDao(r);
+        aListe = sport.getListeSports();
         setChanged();
         notifyObservers(new Action(Action.LOAD));
     }

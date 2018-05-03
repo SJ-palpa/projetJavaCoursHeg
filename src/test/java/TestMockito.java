@@ -54,31 +54,4 @@ public class TestMockito {
         //when(aLst.get()).thenReturn("");
 	//aLst = AthleteDao.getListeAthletes(pMock, sMock);
     }
-   
-
-
-/*
-    Je comprend pas trop pourquoi ça ne fonctionne pas
-
-    @Test
-    public void testCreation() {
-        Assert.assertEquals(pays1.getNom(),"France");	
-    }
-
-    @DataProvider(name = "dataSet")
-    public Object[][] dataSet() {
-        Object[][] dataSet = new Object[3][1];
-        dataSet[0] = new Object[] { "Italie2" };
-        dataSet[1] = new Object[] { "Allemagne2" };
-        dataSet[2] = new Object[] { "Royaume Uni2" };
-        return dataSet;
-    }
- 
-
-    @Test(dataProvider = "dataSet")
-    public void setPays_should_setPays(String k) {
-        pays.setNom(k);
-        Assert.assertEquals(pays.getNom(), k);
-    }
-*/
 }

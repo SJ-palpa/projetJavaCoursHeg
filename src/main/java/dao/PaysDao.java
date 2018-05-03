@@ -7,12 +7,13 @@ import domaine.Pays;
 
 public class PaysDao {
     
-    private static final String FICHIER_PAYS = "Pays.txt";
+    private final FileReader reader;
 
-    public static ArrayList getListePays() { 
-		ArrayList aLst = new ArrayList();
-        String[] tabPays = FileStr.read(FICHIER_PAYS);
-       
+    public PaysDao(FileReader reader){ this.reader = reader; }
+
+    public ArrayList getListePays() { 
+	ArrayList aLst = new ArrayList();
+        String[] tabPays = reader.readPays();    
         for (int i=0; i<tabPays.length; i++) { 
             StringTokenizer strT = new StringTokenizer(tabPays[i], ";");
             aLst.add(new Pays(Integer.parseInt(strT.nextToken()), strT.nextToken(), strT.nextToken()));
