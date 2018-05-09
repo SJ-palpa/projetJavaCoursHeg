@@ -1,3 +1,3 @@
 Projet Java
 
-Utile afin de comprendre l'integration continue (en tout cas pour moi ^^ )
+Je termine mes tests demain j'ai eu 6h pour faire ceci...
