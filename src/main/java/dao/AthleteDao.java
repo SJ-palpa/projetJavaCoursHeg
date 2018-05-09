@@ -8,12 +8,15 @@ import domaine.Pays;
 import domaine.Sport;
 
 public class AthleteDao {
-    
-    private static final String FICHIER_ATHLETES = "Athletes.txt";
 
-    public static ArrayList getListeAthletes(Pays pays, Sport sport) {
-      ArrayList aLst = new ArrayList();
-	String[] tabAthletes = FileStr.read(FICHIER_ATHLETES);
+    private final FileReader reader;
+    
+    public AthleteDao(FileReader reader) { this.reader=reader;}
+
+
+    public ArrayList getListeAthletes(Pays pays, Sport sport) {
+       ArrayList aLst = new ArrayList();
+	   String[] tabAthletes = reader.readAthletes();  
         
         for (int i=0; i<tabAthletes.length; i++) {
             StringTokenizer strT = new StringTokenizer(tabAthletes[i], ";");

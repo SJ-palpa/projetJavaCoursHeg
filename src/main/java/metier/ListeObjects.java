@@ -1,6 +1,7 @@
 package metier;
 
 import java.util.Observable;
+import java.util.Arrays;
 import java.util.Observer;
 import java.util.List;
 
@@ -11,12 +12,15 @@ import java.util.List;
  */
 abstract class ListeObjects extends Observable {
 
-    protected List aListe;             /* Liste des Objects */
+    protected List aListe=Arrays.asList();             /* Liste des Objects */
     public static final int NO_POS = -1;    /* Valeur de la position courante non définie */
     private int posCrt = NO_POS;            /* La position courante: initialement, pas de position courante */
     
     protected ListeObjects() {}
     protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }
+
+    /** Set la liste. */
+    public final void setList(List lst) { aListe = lst; }
 
     /** Retourne le nombre d'Objects de la liste. */
     public final int size() { return aListe.size(); }
@@ -28,7 +32,8 @@ abstract class ListeObjects extends Observable {
     public final void setPos(int pos) {
         if (pos != posCrt) {
             posCrt = (pos >= 0 && pos < aListe.size()) ? pos : NO_POS;
-            setChanged(); notifyObservers(new Action(Action.SEL, posCrt));
+            setChanged(); 
+            notifyObservers(new Action(Action.SEL, posCrt));
         }
     }
 

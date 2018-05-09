@@ -11,7 +11,7 @@ public class Contrat {
 	public Contrat(int no, String nom) { this.no=no; this.dateMois=dt.getDayOfMonth(); this.nom=nom;}
 
 	public int getNo() { return no; }
-    	public int getDateMois() { return dateMois; }
+    public int getDateMois() { return dateMois; }
 	public String getNom() { return nom; }
 
 	public String toString() { return nom; }

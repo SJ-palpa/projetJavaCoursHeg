@@ -25,10 +25,6 @@ public class LstPaysObserver implements Observer{
         if (((Action)arg).getAction() == Action.LOAD) {
             lst.removeAll(); for (int i=0; i < ((ModelePays)o).size(); i++) { lst.add(((ModelePays)o).get(i).toString()); }
         }
-        /*else  if (((Action)arg).getAction() == Action.SEL) 
-        {
-            ((ModelePays)o).setPos(ModelePays.NO_POS);
-        }*/
     }
     
 }

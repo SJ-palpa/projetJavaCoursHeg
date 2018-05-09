@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FrmMain.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">monprojet</a> &gt; <a href="index.source.html" class="el_package">vue</a> &gt; <span class="el_source">FrmMain.java</span></div><h1>FrmMain.java</h1><pre class="source lang-java linenums">package vue;
+
+import domaine.Pays;
+import domaine.Sport;
+import metier.ModelePays;
+import metier.ModeleSports;
+import metier.ModeleAthletes;
+
+public class FrmMain extends java.awt.Frame {
+    
+<span class="nc" id="L11">    private ModelePays modelePays = new ModelePays();</span>
+<span class="nc" id="L12">    private ModeleSports modeleSports = new ModeleSports();</span>
+<span class="nc" id="L13">    private ModeleAthletes modeleAthletes = new ModeleAthletes();</span>
+    
+<span class="nc" id="L15">    public FrmMain() {</span>
+<span class="nc" id="L16">        initComponents();</span>
+<span class="nc" id="L17">        initObservers();</span>
+<span class="nc" id="L18">        modelePays.loadData();</span>
+<span class="nc" id="L19">        modeleSports.loadData();</span>
+<span class="nc" id="L20">    }</span>
+    
+     private void initObservers () {
+<span class="nc" id="L23">        modelePays.addObserver(new LstPaysObserver(lstPays));</span>
+<span class="nc" id="L24">        modeleSports.addObserver(new LstSportsObserver(lstSports));</span>
+<span class="nc" id="L25">        modeleAthletes.addObserver(new LstAthletesObserver(lstAthletes));</span>
+<span class="nc" id="L26">        modeleAthletes.addObserver(new DetailsAthletesObserver(tfNo, tfNom, tfPrenom, tfPays, tfSport));</span>
+        
+<span class="nc" id="L28">    }</span>
+     
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L33">        lstPays = new java.awt.List();</span>
+<span class="nc" id="L34">        tfNo = new java.awt.TextField();</span>
+<span class="nc" id="L35">        tfPrenom = new java.awt.TextField();</span>
+<span class="nc" id="L36">        tfNom = new java.awt.TextField();</span>
+<span class="nc" id="L37">        tfPays = new java.awt.TextField();</span>
+<span class="nc" id="L38">        lstSports = new java.awt.List();</span>
+<span class="nc" id="L39">        lstAthletes = new java.awt.List();</span>
+<span class="nc" id="L40">        tfSport = new java.awt.TextField();</span>
+
+<span class="nc" id="L42">        setTitle(&quot;Liste des Athlètes aux JO 2018&quot;);</span>
+<span class="nc" id="L43">        addWindowListener(new java.awt.event.WindowAdapter() {</span>
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+<span class="nc" id="L45">                formWindowClosed(evt);</span>
+<span class="nc" id="L46">            }</span>
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+<span class="nc" id="L48">                formWindowClosing(evt);</span>
+<span class="nc" id="L49">            }</span>
+        });
+
+<span class="nc" id="L52">        lstPays.addItemListener(new java.awt.event.ItemListener() {</span>
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+<span class="nc" id="L54">                lstPaysItemStateChanged(evt);</span>
+<span class="nc" id="L55">            }</span>
+        });
+
+<span class="nc" id="L58">        tfNo.setEditable(false);</span>
+
+<span class="nc" id="L60">        tfPrenom.setEditable(false);</span>
+
+<span class="nc" id="L62">        tfNom.setEditable(false);</span>
+<span class="nc" id="L63">        tfNom.setName(&quot;&quot;); // NOI18N</span>
+
+<span class="nc" id="L65">        tfPays.setEditable(false);</span>
+
+<span class="nc" id="L67">        lstSports.addItemListener(new java.awt.event.ItemListener() {</span>
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+<span class="nc" id="L69">                lstSportsItemStateChanged(evt);</span>
+<span class="nc" id="L70">            }</span>
+        });
+
+<span class="nc" id="L73">        lstAthletes.setName(&quot;&quot;); // NOI18N</span>
+<span class="nc" id="L74">        lstAthletes.addItemListener(new java.awt.event.ItemListener() {</span>
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+<span class="nc" id="L76">                lstAthletesItemStateChanged(evt);</span>
+<span class="nc" id="L77">            }</span>
+        });
+
+<span class="nc" id="L80">        tfSport.setEditable(false);</span>
+
+<span class="nc" id="L82">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L83">        this.setLayout(layout);</span>
+<span class="nc" id="L84">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L85">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L86">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L87">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L88">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L89">                        .addGap(120, 120, 120)</span>
+<span class="nc" id="L90">                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L91">                        .addGap(30, 30, 30)</span>
+<span class="nc" id="L92">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L93">                            .addComponent(tfPays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L94">                            .addComponent(tfNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L95">                            .addComponent(tfPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)</span>
+<span class="nc" id="L96">                            .addComponent(tfNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L97">                            .addComponent(tfSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))</span>
+<span class="nc" id="L98">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L99">                        .addContainerGap()</span>
+<span class="nc" id="L100">                        .addComponent(lstPays, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L101">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L102">                        .addComponent(lstSports, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L103">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L105">        layout.setVerticalGroup(</span>
+<span class="nc" id="L106">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L107">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L108">                .addContainerGap()</span>
+<span class="nc" id="L109">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L110">                    .addComponent(lstPays, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)</span>
+<span class="nc" id="L111">                    .addComponent(lstSports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L112">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L113">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L114">                        .addGap(52, 52, 52)</span>
+<span class="nc" id="L115">                        .addComponent(tfNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L116">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L117">                        .addComponent(tfPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L118">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L119">                        .addComponent(tfNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L120">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L121">                        .addComponent(tfPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L122">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L123">                        .addComponent(tfSport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L124">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L125">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L126">                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L127">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L130">        pack();</span>
+<span class="nc" id="L131">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+<span class="nc" id="L134">        dispose();</span>
+<span class="nc" id="L135">    }//GEN-LAST:event_formWindowClosing</span>
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+<span class="nc" id="L137">        System.exit(0);</span>
+<span class="nc" id="L138">    }//GEN-LAST:event_formWindowClosed</span>
+
+    private void lstPaysItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstPaysItemStateChanged
+<span class="nc" id="L141">        modelePays.setPos(lstPays.getSelectedIndex());</span>
+<span class="nc" id="L142">        slctPaysSport();</span>
+<span class="nc" id="L143">    }//GEN-LAST:event_lstPaysItemStateChanged</span>
+
+    private void lstSportsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstSportsItemStateChanged
+<span class="nc" id="L146">        modeleSports.setPos(lstSports.getSelectedIndex());</span>
+<span class="nc" id="L147">        slctPaysSport();</span>
+<span class="nc" id="L148">    }//GEN-LAST:event_lstSportsItemStateChanged</span>
+
+    private void lstAthletesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstAthletesItemStateChanged
+<span class="nc" id="L151">        modeleAthletes.setPos(lstAthletes.getSelectedIndex());</span>
+<span class="nc" id="L152">    }//GEN-LAST:event_lstAthletesItemStateChanged</span>
+
+    public void slctPaysSport() {
+        
+        // si les deux liste on une ligne de selectioné
+<span class="nc bnc" id="L157" title="All 4 branches missed.">        if(lstPays.getSelectedIndex() &gt; -1 &amp;&amp; lstSports.getSelectedIndex() &gt; -1) {</span>
+<span class="nc" id="L158">          modeleAthletes.loadData((Pays)modelePays.get(), (Sport)modeleSports.get());</span>
+        }
+<span class="nc" id="L160">    }</span>
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.List lstAthletes;
+    private java.awt.List lstPays;
+    private java.awt.List lstSports;
+    private java.awt.TextField tfNo;
+    private java.awt.TextField tfNom;
+    private java.awt.TextField tfPays;
+    private java.awt.TextField tfPrenom;
+    private java.awt.TextField tfSport;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

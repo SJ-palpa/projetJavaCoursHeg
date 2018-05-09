@@ -5,6 +5,7 @@
  */
 package metier;
 
+import java.util.List;
 import dao.PaysDao;
 import dao.FileReader;
 import domaine.Pays;
@@ -15,10 +16,11 @@ import java.util.ArrayList;
  * @author stephaneTRV
  */
 public class ModelePays extends ListeObjects {
-    
+
+
     public void loadData(){
 	FileReader r = new FileReader();
-        PaysDao pays = new PaysDao(r);
+    PaysDao pays = new PaysDao(r);
 	aListe = pays.getListePays();
         setChanged();
         notifyObservers(new Action(Action.LOAD));

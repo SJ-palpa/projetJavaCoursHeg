@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package metier;
+import java.util.List;
+import dao.FileReader;
+import dao.AthleteDao;
+import java.util.ArrayList;
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
@@ -15,7 +19,9 @@ import domaine.Sport;
 public class ModeleAthletes extends ListeObjects {
     
      public void loadData(Pays p, Sport s) {
-        aListe = dao.AthleteDao.getListeAthletes(p, s);
+        FileReader r = new FileReader();
+        AthleteDao AthleteDao = new AthleteDao(r);
+        aListe = AthleteDao.getListeAthletes(p, s);
         setChanged(); notifyObservers(new Action(Action.LOAD, NO_POS));
     }
 
