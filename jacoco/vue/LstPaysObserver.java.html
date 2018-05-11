@@ -18,14 +18,14 @@ import metier.Action;
 public class LstPaysObserver implements Observer{
     private List lst;
 
-<span class="nc" id="L21">    public LstPaysObserver (List lst) { this.lst = lst; }</span>
+<span class="fc" id="L21">    public LstPaysObserver (List lst) { this.lst = lst; }</span>
 
     @Override
     public void update (Observable o, Object arg) {
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (((Action)arg).getAction() == Action.LOAD) {</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (((Action)arg).getAction() == Action.LOAD) {</span>
 <span class="nc bnc" id="L26" title="All 2 branches missed.">            lst.removeAll(); for (int i=0; i &lt; ((ModelePays)o).size(); i++) { lst.add(((ModelePays)o).get(i).toString()); }</span>
         }
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L28">    }</span>
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

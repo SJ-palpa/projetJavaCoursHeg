@@ -10,17 +10,21 @@ import dao.PaysDao;
 import dao.FileReader;
 import domaine.Pays;
 import java.util.ArrayList;
+import java.util.Observer;
 
 /**
  *
  * @author stephaneTRV
  */
 public class ModelePays extends ListeObjects {
-
-
-    public void loadData(){
-	FileReader r = new FileReader();
+    
+    FileReader r = new FileReader();
     PaysDao pays = new PaysDao(r);
+
+    public ModelePays() {  }
+    public ModelePays(Observer obs) { super(obs); }
+
+    public void loadData(){	
 	aListe = pays.getListePays();
         setChanged();
         notifyObservers(new Action(Action.LOAD));

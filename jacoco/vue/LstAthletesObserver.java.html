@@ -18,22 +18,22 @@ import metier.ModeleAthletes;
 public class LstAthletesObserver implements Observer {
     private List list;
     
-<span class="nc" id="L21">    public LstAthletesObserver(List list) {</span>
-<span class="nc" id="L22">        this.list = list;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L21">    public LstAthletesObserver(List list) {</span>
+<span class="fc" id="L22">        this.list = list;</span>
+<span class="fc" id="L23">    }</span>
 
     @Override
     public void update(Observable o, Object arg) {
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (((Action)arg).getAction() == Action.LOAD) {</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (((Action)arg).getAction() == Action.LOAD) {</span>
 <span class="nc" id="L28">            list.removeAll(); </span>
 <span class="nc bnc" id="L29" title="All 2 branches missed.">            for (int i=0; i &lt; ((ModeleAthletes)o).size(); i++) {</span>
 <span class="nc" id="L30">                list.add(((ModeleAthletes)o).get(i).toString());</span>
             }
         }
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        else if (((Action)arg).getAction() == Action.DEL) {</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if (((Action)arg).getAction() == Action.DEL) {</span>
 <span class="nc" id="L34">            list.removeAll();          </span>
         }
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L36">    }</span>
 
 
 }

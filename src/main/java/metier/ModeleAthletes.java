@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
+import java.util.Observer;
+
 
 /**
  *
@@ -18,9 +20,15 @@ import domaine.Sport;
  */
 public class ModeleAthletes extends ListeObjects {
     
-     public void loadData(Pays p, Sport s) {
-        FileReader r = new FileReader();
-        AthleteDao AthleteDao = new AthleteDao(r);
+
+    FileReader r = new FileReader();
+    AthleteDao AthleteDao = new AthleteDao(r);
+    
+    public ModeleAthletes() {  }
+    public ModeleAthletes(Observer obs) { super(obs); }
+
+    public void loadData(Pays p, Sport s) {
+        
         aListe = AthleteDao.getListeAthletes(p, s);
         setChanged(); notifyObservers(new Action(Action.LOAD, NO_POS));
     }

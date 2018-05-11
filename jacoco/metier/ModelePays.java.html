@@ -10,31 +10,35 @@ import dao.PaysDao;
 import dao.FileReader;
 import domaine.Pays;
 import java.util.ArrayList;
+import java.util.Observer;
 
 /**
  *
  * @author stephaneTRV
  */
-<span class="fc" id="L18">public class ModelePays extends ListeObjects {</span>
+public class ModelePays extends ListeObjects {
+    
+<span class="fc" id="L21">    FileReader r = new FileReader();</span>
+<span class="fc" id="L22">    PaysDao pays = new PaysDao(r);</span>
 
+<span class="fc" id="L24">    public ModelePays() {  }</span>
+<span class="fc" id="L25">    public ModelePays(Observer obs) { super(obs); }</span>
 
-    public void loadData(){
-<span class="nc" id="L22">	FileReader r = new FileReader();</span>
-<span class="nc" id="L23">    PaysDao pays = new PaysDao(r);</span>
-<span class="nc" id="L24">	aListe = pays.getListePays();</span>
-<span class="nc" id="L25">        setChanged();</span>
-<span class="nc" id="L26">        notifyObservers(new Action(Action.LOAD));</span>
-<span class="nc" id="L27">    }</span>
+    public void loadData(){	
+<span class="nc" id="L28">	aListe = pays.getListePays();</span>
+<span class="nc" id="L29">        setChanged();</span>
+<span class="nc" id="L30">        notifyObservers(new Action(Action.LOAD));</span>
+<span class="nc" id="L31">    }</span>
     
     
     @Override
     public Object get(){
-<span class="fc" id="L32">            return (Pays)super.get();</span>
+<span class="fc" id="L36">            return (Pays)super.get();</span>
     }
     
     @Override
     public Object get(int pos){
-<span class="fc" id="L37">            return (Pays)super.get(pos);</span>
+<span class="fc" id="L41">            return (Pays)super.get(pos);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

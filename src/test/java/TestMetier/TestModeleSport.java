@@ -1,13 +1,12 @@
+
 package metier;
 
 import dao.FileReader;
 import java.util.List;
-
-import domaine.Athlete;
-import domaine.Pays;
+import dao.SportDao;
 import domaine.Sport;
 import java.util.Arrays;
-import vue.LstAthletesObserver;
+import vue.LstSportsObserver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -15,55 +14,52 @@ import static org.testng.Assert.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestModeleAtheletes {
+public class TestModeleSport {
 
-	private Athlete ath1;
-	private Pays pays1;
 	private Sport sport1;
-	private ModeleAthletes mdAth;
-	private LstAthletesObserver observer;
+	private ModeleSports mdSports,mdSports1;
+	private LstSportsObserver observer;
 	private java.awt.List list;
 
 	@BeforeTest
     protected void setUp()
     {
     	list = new java.awt.List();
-    	observer = new LstAthletesObserver(list);
-    	mdAth= new ModeleAthletes();
-    	sport1 = new Sport(1,"Petanque","Petanque sur gazon");
-    	pays1 = new Pays(1,"CH","Suisse");
+    	observer = new LstSportsObserver(list);
+    	mdSports= new ModeleSports();
+    	
     }
 
 
 	@Test
 	public void shouldReturnNullWhenNoSport()
 	{
-		assertEquals(mdAth.get(),null);
+		assertEquals(mdSports.get(),null);
 	}
 
 	@Test
 	public void shouldReturnSportWhenSport()
 	{
-		ath1 = new Athlete(1,"Teddy","Rinner",pays1,sport1);
-		List<Athlete> lst = Arrays.asList(ath1);
-		mdAth.setList(lst);
-		mdAth.setPos(0);
-		assertEquals(mdAth.get(),new Athlete(1,"Teddy","Rinner",pays1,sport1));
+		sport1 = new Sport(1,"Petanque","Petanque sur gazon");
+		List<Sport> lst = Arrays.asList(sport1);
+		mdSports.setList(lst);
+		mdSports.setPos(0);
+		assertEquals(mdSports.get(),new Sport(1,"Petanque","Petanque sur gazon"));
 	}
 
 
 	@Test
     public void shouldReturnObserverIfNotNull() {
-        mdAth = new ModeleAthletes(observer);
-        int nbOfObservers = mdAth.countObservers();
+        mdSports = new ModeleSports(observer);
+        int nbOfObservers = mdSports.countObservers();
         assertThat(nbOfObservers).isGreaterThan(0);
     }
 
 	@Test
 	public void shouldReturnullWhenObjectListnotCorectlyDefined()
 	{
-		mdAth= new ModeleAthletes();
-		assertEquals(mdAth.get(1),null);
+		mdSports1= new ModeleSports();
+		assertEquals(mdSports1.get(1),null);
 	}
 
 

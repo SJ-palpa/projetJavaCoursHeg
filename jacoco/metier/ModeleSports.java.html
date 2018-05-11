@@ -8,30 +8,35 @@ package metier;
 import dao.FileReader;
 import dao.SportDao;
 import domaine.Sport;
+import java.util.Observer;
+
 
 /**
  *
  * @author stephaneTRV
  */
-<span class="nc" id="L16">public class ModeleSports extends ListeObjects{</span>
+public class ModeleSports extends ListeObjects{
     
-    
+<span class="fc" id="L20">    FileReader r = new FileReader();</span>
+<span class="fc" id="L21">    SportDao sport = new SportDao(r);</span>
+
+<span class="fc" id="L23">    public ModeleSports() {  }</span>
+<span class="fc" id="L24">    public ModeleSports(Observer obs) { super(obs); }</span>
+
     public void loadData(){
-<span class="nc" id="L20">	FileReader r = new FileReader();</span>
-<span class="nc" id="L21">	SportDao sport = new SportDao(r);</span>
-<span class="nc" id="L22">        aListe = sport.getListeSports();</span>
-<span class="nc" id="L23">        setChanged();</span>
-<span class="nc" id="L24">        notifyObservers(new Action(Action.LOAD));</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L27">        aListe = sport.getListeSports();</span>
+<span class="nc" id="L28">        setChanged();</span>
+<span class="nc" id="L29">        notifyObservers(new Action(Action.LOAD));</span>
+<span class="nc" id="L30">    }</span>
     
     @Override
     public Object get(){
-<span class="nc" id="L29">            return (Sport) super.get();</span>
+<span class="fc" id="L34">            return (Sport) super.get();</span>
     }
     
     @Override
     public Object get(int pos){
-<span class="nc" id="L34">            return (Sport) super.get(pos);</span>
+<span class="fc" id="L39">            return (Sport) super.get(pos);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

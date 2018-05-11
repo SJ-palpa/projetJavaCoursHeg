@@ -2,14 +2,17 @@
 
 import outils.FileStr;
 
-<span class="nc" id="L5">public class FileReader {</span>
+<span class="fc" id="L5">public class FileReader {</span>
+
+<span class="fc" id="L7">	FileStr fileStr = new FileStr();</span>
 
 	private static final String FICHIER_PAYS = &quot;Pays.txt&quot;;
 	private static final String FICHIER_SPORTS = &quot;Sports.txt&quot;;
 	private static final String FICHIER_ATHELETES = &quot;Athletes.txt&quot;;
 
-<span class="nc" id="L11">	public String[] readPays() {return FileStr.read(FICHIER_PAYS);}	</span>
-<span class="nc" id="L12">	public String[] readSports() {return FileStr.read(FICHIER_SPORTS);}</span>
-<span class="nc" id="L13">	public String[] readAthletes() {return FileStr.read(FICHIER_ATHELETES);}</span>
+	//public String[] read(String FICHIER) {return fileStr.read(FICHIER);}
+<span class="nc" id="L14">	public String[] readPays() {return fileStr.read(FICHIER_PAYS);}	</span>
+<span class="nc" id="L15">	public String[] readSports() {return fileStr.read(FICHIER_SPORTS);}</span>
+<span class="nc" id="L16">	public String[] readAthletes() {return fileStr.read(FICHIER_ATHELETES);}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

@@ -12,12 +12,12 @@ import java.util.List;
  */
 abstract class ListeObjects extends Observable {
 
-<span class="pc" id="L15">    protected List aListe=Arrays.asList();             /* Liste des Objects */</span>
+<span class="fc" id="L15">    protected List aListe=Arrays.asList();             /* Liste des Objects */</span>
     public static final int NO_POS = -1;    /* Valeur de la position courante non définie */
-<span class="pc" id="L17">    private int posCrt = NO_POS;            /* La position courante: initialement, pas de position courante */</span>
+<span class="fc" id="L17">    private int posCrt = NO_POS;            /* La position courante: initialement, pas de position courante */</span>
     
 <span class="fc" id="L19">    protected ListeObjects() {}</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">    protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">    protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }</span>
 
     /** Set la liste. */
 <span class="fc" id="L23">    public final void setList(List lst) { aListe = lst; }</span>
@@ -39,8 +39,8 @@ abstract class ListeObjects extends Observable {
 
     /** Retourne l'Object courant, null si la position courante n'est pas correctement définie. */
     protected Object get() {
-<span class="pc bpc" id="L42" title="3 of 4 branches missed.">        if (posCrt &lt; 0 || posCrt &gt;= aListe.size()) { return null; }</span>
-<span class="nc" id="L43">        return aListe.get(posCrt);</span>
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        if (posCrt &lt; 0 || posCrt &gt;= aListe.size()) { return null; }</span>
+<span class="fc" id="L43">        return aListe.get(posCrt);</span>
     }
 
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */

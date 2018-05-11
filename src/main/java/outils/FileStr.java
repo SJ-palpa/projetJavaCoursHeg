@@ -16,7 +16,7 @@ public class FileStr
 
     public FileStr() {}
 
-    public static String[] read(String paramString)
+    public String[] read(String paramString)
     {
         try
         {
@@ -39,7 +39,7 @@ public class FileStr
     }
 
 
-    public static void write(String paramString, String[] paramArrayOfString)
+    public void write(String paramString, String[] paramArrayOfString)
     {
         try
         {

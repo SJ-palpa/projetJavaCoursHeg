@@ -8,6 +8,8 @@ package metier;
 import dao.FileReader;
 import dao.SportDao;
 import domaine.Sport;
+import java.util.Observer;
+
 
 /**
  *
@@ -15,10 +17,13 @@ import domaine.Sport;
  */
 public class ModeleSports extends ListeObjects{
     
-    
+    FileReader r = new FileReader();
+    SportDao sport = new SportDao(r);
+
+    public ModeleSports() {  }
+    public ModeleSports(Observer obs) { super(obs); }
+
     public void loadData(){
-	FileReader r = new FileReader();
-	SportDao sport = new SportDao(r);
         aListe = sport.getListeSports();
         setChanged();
         notifyObservers(new Action(Action.LOAD));

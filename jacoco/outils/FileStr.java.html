@@ -14,9 +14,9 @@ public class FileStr
 {
     private static final int EOF = -1;
 
-<span class="nc" id="L17">    public FileStr() {}</span>
+<span class="fc" id="L17">    public FileStr() {}</span>
 
-    public static String[] read(String paramString)
+    public String[] read(String paramString)
     {
         try
         {
@@ -33,13 +33,13 @@ public class FileStr
 <span class="nc" id="L33">            String[] arrayOfString = new String[j];</span>
 <span class="nc bnc" id="L34" title="All 2 branches missed.">            for (int k = 0; k &lt; j; k++) arrayOfString[k] = localStringTokenizer.nextToken();</span>
 <span class="nc" id="L35">            return arrayOfString;</span>
-<span class="nc" id="L36">        } catch (FileNotFoundException localFileNotFoundException) {</span>
-<span class="nc" id="L37">            localFileNotFoundException.printStackTrace();return null;</span>
+<span class="fc" id="L36">        } catch (FileNotFoundException localFileNotFoundException) {</span>
+<span class="fc" id="L37">            localFileNotFoundException.printStackTrace();return null;</span>
 <span class="nc" id="L38">        } catch (IOException localIOException) { localIOException.printStackTrace(); } return null;</span>
     }
 
 
-    public static void write(String paramString, String[] paramArrayOfString)
+    public void write(String paramString, String[] paramArrayOfString)
     {
         try
         {

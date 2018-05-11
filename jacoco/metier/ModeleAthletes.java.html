@@ -11,26 +11,34 @@ import java.util.ArrayList;
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
+import java.util.Observer;
+
 
 /**
  *
  * @author stephaneTRV
  */
-<span class="nc" id="L19">public class ModeleAthletes extends ListeObjects {</span>
+public class ModeleAthletes extends ListeObjects {
     
-     public void loadData(Pays p, Sport s) {
-<span class="nc" id="L22">        FileReader r = new FileReader();</span>
-<span class="nc" id="L23">        AthleteDao AthleteDao = new AthleteDao(r);</span>
-<span class="nc" id="L24">        aListe = AthleteDao.getListeAthletes(p, s);</span>
-<span class="nc" id="L25">        setChanged(); notifyObservers(new Action(Action.LOAD, NO_POS));</span>
-<span class="nc" id="L26">    }</span>
+
+<span class="fc" id="L24">    FileReader r = new FileReader();</span>
+<span class="fc" id="L25">    AthleteDao AthleteDao = new AthleteDao(r);</span>
+    
+<span class="fc" id="L27">    public ModeleAthletes() {  }</span>
+<span class="fc" id="L28">    public ModeleAthletes(Observer obs) { super(obs); }</span>
+
+    public void loadData(Pays p, Sport s) {
+        
+<span class="nc" id="L32">        aListe = AthleteDao.getListeAthletes(p, s);</span>
+<span class="nc" id="L33">        setChanged(); notifyObservers(new Action(Action.LOAD, NO_POS));</span>
+<span class="nc" id="L34">    }</span>
 
     public Object get() {
-<span class="nc" id="L29">        return (Athlete)super.get();</span>
+<span class="fc" id="L37">        return (Athlete)super.get();</span>
     }
     
     public Object get(int i) {
-<span class="nc" id="L33">        return (Athlete)super.get(i);</span>
+<span class="fc" id="L41">        return (Athlete)super.get(i);</span>
     }
     
 }
